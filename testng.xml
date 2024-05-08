@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="classes" name="Example Suite">
+  <test thread-count="3" parallel="classes" name="Test">
+    <classes>
+      <class name="test.Assignment7"/>
+      <class name="test.MangeTab"/>
+      <class name="test.Assignment8"/>
+      <class name="test.JSConfirmBox"/>
+      <class name="test.FilterExample"/>
+      <class name="test.JavaStreams"/>
+      <class name="test.ActionsPractice"/>
+      <class name="test.JSAlertBox"/>
+      <class name="test.JenkinsTest"/>
+      <class name="test.CheckBoxExample"/>
+      <class name="test.StreamTest"/>
+      <class name="test.Assignment2"/>
+      <class name="test.TestNGDataProvider"/>
+      <class name="test.DynamicDropDown"/>
+      <class name="test.Assignment5"/>
+      <class name="test.SRKTest"/>
+      <class name="test.SelectorsPractice"/>
+      <class name="test.TableData"/>
+      <class name="test.Assignment3"/>
+      <class name="test.Assignment4"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Example Suite -->

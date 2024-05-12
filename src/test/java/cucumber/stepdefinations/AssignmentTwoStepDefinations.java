@@ -54,10 +54,10 @@ public class AssignmentTwoStepDefinations extends BaseFunctions {
 		element(By.cssSelector("input[type='date']")).sendKeys("14/03/1999");
 	}
 
-	@And("I click on submit button")
-	public void i_click_on_submit_button() {
-		element(By.cssSelector("input[type='submit']")).click();
-	}
+//	@And("I click on submit button")
+//	public void i_click_on_submit_button() {
+//		element(By.cssSelector("input[type='submit']")).click();
+//	}
 
 	@Given("^I want to enter (.*) in (.*)$")
 	public void i_want_to_enter_rahulshettyacademy_in_login_page_user_name(String userName, String locator) {

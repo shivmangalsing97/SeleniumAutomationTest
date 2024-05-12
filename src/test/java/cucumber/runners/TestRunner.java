@@ -9,8 +9,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		glue = "cucumber.stepdefinations",
 		features = "src/test/resources/Features/",
-		tags = "@Actions",
-		plugin = {"html:target/cucumber/html.html"},
+		tags = "@Actions or @Assignments",
+		plugin = {"json:target/cucumber/report.json"},
 		monochrome = false
 		)
 public class TestRunner extends AbstractTestNGCucumberTests {

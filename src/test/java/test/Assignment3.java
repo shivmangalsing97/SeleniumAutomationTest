@@ -32,7 +32,7 @@ public class Assignment3 {
 		driver.findElement(By.name("password")).sendKeys("learning");
 		
 		driver.findElement(By.xpath("//input[@value='user']")).click();
-		driver.findElement(By.xpath("//button[@id='okayBtn']")).click();
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//button[@id='okayBtn']")));
 		WebElement selector = driver.findElement(By.cssSelector("select.form-control"));
 		Select options = new Select(selector);
 		options.selectByVisibleText("Consultant");

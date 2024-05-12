@@ -2,20 +2,21 @@ package cucumber.utils;
 
 
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.Iterator;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.net.MalformedURLException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseFunctions {
@@ -25,6 +26,7 @@ public class BaseFunctions {
 	String server;
 //	PropertiesFileHandler prop = new PropertiesFileHandler();
 	DesiredCapabilities cap = new DesiredCapabilities();
+	
 
 	public void initializeBrowser() {
 		System.out.println(
@@ -190,5 +192,9 @@ public class BaseFunctions {
 		driver.switchTo().window(window);
 	}
 	
-
+	public TakesScreenshot takeScreenShot() {
+		return (TakesScreenshot) driver;
+	}
+	
+	
 }

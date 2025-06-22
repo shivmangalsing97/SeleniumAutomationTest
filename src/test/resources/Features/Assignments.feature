@@ -10,9 +10,9 @@ Feature: First Cucumber Feature
     And select gender as male
     And mark my employment status as Student
     Then I Enter my date of birth as 12-Mar-1999
-    And I click on submit button
+    And I click on AssignMentSubmit button
 
-  @Assignments
+  @Assignments @Test
   Scenario: Assignment Three
     Given I want to launch loginPracticeURL page
     And I want to enter rahulshettyacademy in loginPageUserName

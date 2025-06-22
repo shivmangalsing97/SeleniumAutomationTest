@@ -16,42 +16,54 @@ public class AssignmentTwoStepDefinations extends BaseFunctions {
 	public void launchPageStep(String Url) {
 		String pageUrl = PropertiesFileHandler.readURLProerties(Url);
 		launchApplication(pageUrl);
+		logMessage("**[INFO] Current Page URL: " + currentPageURL());
 	}
 
 	@And("I enter username")
 	public void i_enter_username() {
-		element(By.cssSelector("input[name='name']")).sendKeys("Shiv Mangal");
+		String userName = "Shiv Mangal";
+		element(By.cssSelector("input[name='name']")).sendKeys(userName);
+		logMessage("**[INFO] Entered UserName: "+ userName);
 	}
 
 	@And("I enter email")
 	public void i_enter_email() {
-		element(By.cssSelector("input[name='email']")).sendKeys("Shiv@example.com");
+		String email = "Shiv@example.com";
+		element(By.cssSelector("input[name='email']")).sendKeys(email);
+		logMessage("**[INFO] Entered email: "+ email);
 	}
 
 	@And("I enter password")
 	public void i_enter_password() {
-		element(By.cssSelector("input[type='password']")).sendKeys("exe@123");
+		String passWord = PropertiesFileHandler.readConfigProperties("Password");
+		element(By.cssSelector("input[type='password']")).sendKeys(passWord);
+		logMessage("**[INFO] Entered PassWord: "+ passWord);
 	}
 
 	@When("I check on the checkbox")
 	public void i_check_on_the_checkbox() {
 		element(By.cssSelector("input[type='checkbox']")).click();
+		logMessage("**[INFO]: Clicked On CheckBox");
 	}
 
 	@And("select gender as male")
 	public void select_gender_as_male() {
 		Select select = new Select(element(By.id("exampleFormControlSelect1")));
 		select.selectByVisibleText("Male");
+		logMessage("**[INFO]: Selected Gender Using visible text: MALE");
 	}
 
 	@And("mark my employment status as Student")
 	public void mark_my_employment_status_as_student() {
 		element(By.cssSelector("input[value='option1']")).click();
+		logMessage("**[INFO]: Employement Status: Student");
 	}
 
 	@Then("I Enter my date of birth as 12-Mar-1999")
 	public void i_enter_my_date_of_birth_as_mar() {
-		element(By.cssSelector("input[type='date']")).sendKeys("14/03/1999");
+		String dob = "14/03/1999" ;
+		element(By.cssSelector("input[type='date']")).sendKeys(dob);
+		logMessage("**[INFO] Entered Date of Birth: "+ dob);
 	}
 
 //	@And("I click on submit button")
@@ -62,23 +74,27 @@ public class AssignmentTwoStepDefinations extends BaseFunctions {
 	@Given("^I want to enter (.*) in (.*)$")
 	public void i_want_to_enter_rahulshettyacademy_in_login_page_user_name(String userName, String locator) {
 		element(locator).sendKeys(userName);
+		logMessage("**[INFO] Enterred: " + userName);
 	}
 
 	@When("^I click on (.*) radioButton$")
 	public void i_click_on_login_page_user_radio_button(String locator) {
 		element(locator).click();
+		logMessage("**[INFO] clicked on : " + locator);
 
 	}
 
 	@When("^accept the (.*)$")
 	public void accept_the_pop_up_msg(String locator) {
 		element(locator).click();
+		logMessage("**[INFO] accepted: " + locator);
 	}
 
 	@When("^I select (.*) using visibleText (.*)$")
 	public void i_select_login_page_selector_using_visible_text_consultant(String locator, String visibleText) {
 		Select options = new Select(element(locator));
 		options.selectByVisibleText(visibleText);
+		logMessage("**[INFO] Selected by visible text: " + visibleText);
 	}
 
 	@Then("^I verify (.*) value is (.*)$")
@@ -87,17 +103,19 @@ public class AssignmentTwoStepDefinations extends BaseFunctions {
 		String actualText = options.getFirstSelectedOption().getText();
 		Assert.assertTrue(actualText.equalsIgnoreCase(expectedText),
 				"Actual text:" + actualText + "is not equals to Expected Text: " + expectedText);
-		logMessage("[ASSERT PASS]: Actual text:" + actualText + "is equals to Expected Text: " + expectedText);
+		logMessage("**[ASSERT PASSED]: Actual text:" + actualText + "is equals to Expected Text: " + expectedText);
 	}
 
 	@Then("^I click on (.*) checkbox$")
 	public void i_click_on_login_page_terms_checkbox(String locator) {
 		element(locator).click();
+		logMessage("**[INFO] clicked on : " + locator);
 	}
 
 	@Then("^I click on (.*) button$")
 	public void i_click_on_login_page_sign_in_button(String locator) {
 		element(locator).click();
+		logMessage("**[INFO] Clicked on : " + locator);
 	}
 
 }

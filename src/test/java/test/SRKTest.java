@@ -19,7 +19,7 @@ public class SRKTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://jqueryui.com/droppable/");
 		
-		WebElement frame = driver.findElement(By.xpath("//*[@id=\"content\"]/iframe"));
+		WebElement frame = driver.findElement(By.xpath("//*[@id='content']/iframe"));
 		driver.switchTo().frame(frame);
 		
 		WebElement draggable = driver.findElement(By.id("draggable"));

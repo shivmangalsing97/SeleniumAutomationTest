@@ -11,10 +11,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class DynamicTable {
 
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		
 		System.setProperty("web.driver.chrome", "src/test/resources/drivers/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();

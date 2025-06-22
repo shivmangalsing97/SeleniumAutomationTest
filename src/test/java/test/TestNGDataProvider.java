@@ -10,7 +10,7 @@ public class TestNGDataProvider {
 	@DataProvider(name="daata")
 	public Object[][] getData() {
 
-		Object[][] data = new Object[3][2];
+		Object[][] data = new Object[4][2];
 			data[0][0] = "Shiv Mangal" ;
 			data[0][1] = "smangal" ;
 			
@@ -19,6 +19,9 @@ public class TestNGDataProvider {
 			
 			data[2][0] = "Kanika Bhardwaj" ;
 			data[2][1] = "Kbhardwaj" ;
+			
+			data[3][0] = "Soumya Mishra" ;
+			data[3][1] = "smishra" ;
 			
 		return data;
 	}

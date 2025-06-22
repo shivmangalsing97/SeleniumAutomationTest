@@ -5,6 +5,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
+
+import com.aventstack.extentreports.ExtentReports;
+
 import cucumber.utils.BaseFunctions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -15,8 +18,9 @@ import io.cucumber.java.en.When;
 public class ActionsPracticeStepSefinations extends BaseFunctions{
 
 	Actions action ;
+//	ExtentReports extent ;
 	
-	@Before()
+	@Before(order=0)
 	public void scnarioDetails(Scenario scen) {
 		
 		System.out.println(
@@ -26,6 +30,13 @@ public class ActionsPracticeStepSefinations extends BaseFunctions{
 				"---------------------------------------------------------------------------------------------");
 		
 	}
+	
+//	@Before(order=1)
+//	public void startReporting(Scenario scen) {
+//		extent = new ExtentReports();
+//		extent.attachReporter(report);		
+//	}
+	
 	
 	@After(order=0)
 	public void failScenarioTakingScreenshot(Scenario scenario)
@@ -49,6 +60,7 @@ public class ActionsPracticeStepSefinations extends BaseFunctions{
 
 	@When("^I move to the (.*) element$")
 	public void mouseOverToElement(String element) {
+		
 		action = moveToElement(element(element)) ;
 	}
 	

@@ -16,6 +16,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Reporter;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -26,6 +31,7 @@ public class BaseFunctions {
 	String server;
 //	PropertiesFileHandler prop = new PropertiesFileHandler();
 	DesiredCapabilities cap = new DesiredCapabilities();
+//	public ExtentSparkReporter report = new ExtentSparkReporter("target/cucumber/extentReport.html");
 	
 
 	public void initializeBrowser() {
@@ -106,6 +112,10 @@ public class BaseFunctions {
 		driver.get(url);
 	}
 	
+	public String currentPageURL() {
+		return driver.getCurrentUrl();
+	}
+	
 	public WebElement element(By locator) {
 		return driver.findElement(locator);
 	}
@@ -164,7 +174,8 @@ public class BaseFunctions {
 	}
 	
 	public void logMessage(String msg) {
-		System.out.println(msg);
+		Reporter.log(msg, true);
+//		System.out.println(msg);
 	}
 	
 	public Actions moveToElement(WebElement element) {

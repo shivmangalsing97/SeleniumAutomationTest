@@ -6,8 +6,12 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class MangeTab {
@@ -48,5 +52,36 @@ public class MangeTab {
 		
 		driver.quit();
 	}
+	
+	@Test
+	public void openNewTabs() {
+		
+
+		WebDriver driver = new ChromeDriver();
+
+//		
+//		driver.manage().window().maximize();
+//		System.out.println("Browser Window Maximized");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));		
+		driver.get("https://www.google.com/");
+
+		// 1. Using Action class
+//		Actions actions = new Actions(driver);
+//		actions.keyDown(Keys.CONTROL).sendKeys("t").keyUp(Keys.CONTROL).perform();
+		
+		//2. Using Selenium 4
+		driver.switchTo().newWindow(WindowType.WINDOW).get("https://rahulshettyacademy.com/AutomationPractice/");
+		driver.close();
+
+		//3. Using JavascriptExecutor
+		JavascriptExecutor js = (JavascriptExecutor) driver ; 
+		js.executeScript("window.open(\"https://rahulshettyacademy.com/AutomationPractice/\")");
+		driver.close();
+		
+		
+//		driver.quit();
+		
+	}
+	
 
 }

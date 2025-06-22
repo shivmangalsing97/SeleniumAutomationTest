@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		glue = "cucumber.stepdefinations",
 		features = "src/test/resources/Features/",
-		tags = "@Actions or @Assignments",
+		tags = "@Test",
 		plugin = {"json:target/cucumber/report.json"},
 		monochrome = false
 		)
